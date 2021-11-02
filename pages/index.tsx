@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import React, {FormEvent, useState} from "react";
+import React, {useState} from "react";
 
 import { QrcodeIcon, PlusIcon } from '@heroicons/react/solid'
 
@@ -37,7 +37,11 @@ type NewScanProps = {
 const NewScan: React.FunctionComponent<NewScanProps> = ({ onRead }) => {
   const [inputData, setInputData] = useState("");
 
-  const handleSubmit = (ev: FormEvent) => {
+  const handleInputChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
+    setInputData(ev.target.value);
+  }
+
+  const handleSubmit = (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
     onRead(inputData);
     setInputData("");
@@ -59,6 +63,8 @@ const NewScan: React.FunctionComponent<NewScanProps> = ({ onRead }) => {
                 id="code"
                 className="focus:ring-indigo-500 focus:border-indigo-500 block w-full rounded-none rounded-l-md pl-10 sm:text-sm border-gray-300"
                 placeholder="Código"
+                value={inputData}
+                onChange={handleInputChange}
             />
           </div>
           <button

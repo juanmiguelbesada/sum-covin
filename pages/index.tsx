@@ -82,8 +82,7 @@ const NewScan: React.FunctionComponent<NewScanProps> = ({ onRead }) => {
 const Home: NextPage = () => {
   const [scanReads, setScanReads] = useState<ScanRead[]>([]);
 
-  const isDuplicated = (code: string) =>
-    !!scanReads.find((scanRead) => scanRead.code === code);
+  const isDuplicated = (code: string) => !!scanReads.find((scanRead) => scanRead.code === code);
 
   const addScan = (scanRead: string) => {
     const { code, weight } = processRead(scanRead);
@@ -119,9 +118,7 @@ const Home: NextPage = () => {
       <main className="py-10">
         <div className="md:flex md:items-center md:justify-between mb-5">
           <div className="flex-1 min-w-0">
-            <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
-              SUM COVIN
-            </h2>
+            <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">SUM COVIN</h2>
           </div>
         </div>
 
@@ -163,20 +160,13 @@ const Home: NextPage = () => {
                   <tbody>
                     {scanReads.map((read, index) => (
                       <tr key={index}>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                          {index + 1}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                          {read.code}
-                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{index + 1}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{read.code}</td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{`${read.weight.toFixed(
                           3
                         )} Kgs`}</td>
                         <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                          <button
-                            className="text-red-600 hover:text-danger-900"
-                            onClick={() => removeRead(read)}
-                          >
+                          <button className="text-red-600 hover:text-danger-900" onClick={() => removeRead(read)}>
                             Eliminar
                           </button>
                         </td>
@@ -197,12 +187,7 @@ const Home: NextPage = () => {
                         scope="col"
                         className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                       >
-                        <strong>
-                          {scanReads
-                            .reduce((acc, read) => acc + read.weight, 0)
-                            .toFixed(3)}{" "}
-                          Kgs
-                        </strong>
+                        <strong>{scanReads.reduce((acc, read) => acc + read.weight, 0).toFixed(3)} Kgs</strong>
                       </th>
                     </tr>
                   </tfoot>

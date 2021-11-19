@@ -10,7 +10,7 @@ type ScanRead = {
 };
 
 const processRead = (scanRead: string): ScanRead => {
-  const EAN_13 = /^\d{7}(\d{5})\d$/;
+  const EAN_13 = /^29\d{5}(\d{5})\d$/;
   const EAN_128 = /310(\d)(\d{6})/g;
 
   let code;

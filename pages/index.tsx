@@ -101,6 +101,11 @@ const Home: NextPage = () => {
     }
   };
 
+  const copy = () => {
+    const total = scanReads.reduce((acc, read) => acc + read.weight, 0).toFixed(3);
+    navigator.clipboard.writeText(total);
+  };
+
   return (
     <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
       <Head>
@@ -191,6 +196,13 @@ const Home: NextPage = () => {
             </div>
           </div>
         </div>
+        <button
+          type="button"
+          className="inline-flex items-center px-6 py-3 mr-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          onClick={copy}
+        >
+          Copiar TOTAL
+        </button>
         <button
           type="button"
           className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-yellow-600 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"

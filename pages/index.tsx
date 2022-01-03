@@ -82,16 +82,8 @@ const NewScan: React.FunctionComponent<NewScanProps> = ({ onRead }) => {
 const Home: NextPage = () => {
   const [scanReads, setScanReads] = useState<ScanRead[]>([]);
 
-  const isDuplicated = (code: string) => !!scanReads.find((scanRead) => scanRead.code === code);
-
   const addScan = (scanRead: string) => {
     const { code, weight } = processRead(scanRead);
-
-    if (isDuplicated(code)) {
-      if (!confirm(`Código ${code} duplicado. ¿Desea continuar?`)) {
-        return;
-      }
-    }
 
     setScanReads([...scanReads, { code, weight }]);
   };

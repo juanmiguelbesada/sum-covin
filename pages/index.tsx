@@ -151,9 +151,11 @@ const Home: NextPage = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {scanReads.map((read, index) => (
+                    {scanReads.reverse().map((read, index) => (
                       <tr key={index}>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{index + 1}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                          {scanReads.length - index}
+                        </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{read.code}</td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{`${read.weight.toFixed(
                           3

@@ -95,9 +95,9 @@ const Home: NextPage = () => {
     }
   };
 
-  const reset = () => {
+  const refresh = () => {
     if (confirm("¿Estas seguro?")) {
-      setScanReads([]);
+      window.location.reload();
     }
   };
 
@@ -206,9 +206,9 @@ const Home: NextPage = () => {
         <button
           type="button"
           className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-yellow-600 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
-          onClick={reset}
+          onClick={refresh}
         >
-          Limpiar
+          Refrescar
         </button>
       </main>
     </div>
